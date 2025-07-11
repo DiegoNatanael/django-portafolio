@@ -1,0 +1,35 @@
+<!-- templates/project_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}{{ project.title }} - Diego Natanael{% endblock %}
+
+{% block content %}
+<div class="case-study-container">
+    <header class="case-study-header">
+        <!-- Project Title -->
+        <h1>{{ project.title }}</h1>
+
+        <!-- Tagline -->
+        <p class="tagline">{{ project.tagline }}</p>
+
+        <!-- Links (GitHub / Live Demo) -->
+        <div class="project-links-detail">
+            <a href="{{ project.github_link }}" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            {% if project.live_demo_link %}
+            <a href="{{ project.live_demo_link }}" target="_blank" rel="noopener noreferrer">View Live Demo</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Main Thumbnail Image -->
+    <div class="case-study-image">
+        <img src="{{ project.thumbnail.url }}" alt="{{ project.title }} preview">
+    </div>
+
+    <!-- The main content of your case study -->
+    <article class="case-study-content">
+        {{ case_study_html }}
+    </article>
+</div>
+{% endblock %}
